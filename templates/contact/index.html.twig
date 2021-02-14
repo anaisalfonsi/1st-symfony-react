@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid d-flex justify-content-center">
+        <h1 id="big-title">Contact</h1>
+    </div>
+    <div class="container">
+        <form method="POST">
+            {% if app.user == false %}
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <label for="name">Name *</label>
+                            <input type="text" name="name" class="form-control my-2">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label for="email">Email *</label>
+                            <input type="email" name="email" class="form-control my-2">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="subject">Subject *</label>
+                            <input type="text" name="subject" class="form-control my-2">
+                        </div>
+                        <div class="col-12">
+                            <label for="message">Message *</label>
+                            <textarea name="message" cols="30" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="subject">Subject *</label>
+                            <input type="text" name="subject" class="form-control my-2">
+                        </div>
+                        <div class="col-12">
+                            <label for="message">Message *</label>
+                            <textarea name="message" cols="30" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="text-right mt-5 mr-5">
+                <button type="submit" class="btn">Send</button>
+            </div>
+        </form>
+        <div class="col-12">
+            <p class="text-danger"><small>* Required Fields</small></p>
+        </div>
+    </div>
+    <div class="white-space"></div>
+{% endblock %}
+{% block javascripts %}
+<script src="{{ asset('js/components/Contact.js') }}"></script>
+{% endblock %}
